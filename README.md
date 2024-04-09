@@ -137,6 +137,14 @@
 
 ---
 
+## 👨‍👩‍👧‍👦 구성원
+
+| [![윤진아](https://github.com/ahjinU.png)](https://github.com/ahjinU) | [![윤서안](https://github.com/annyoon.png)](https://github.com/annyoon) | [![장수민](https://github.com/jangsumin.png)](https://github.com/jangsumin) | [![김라연](https://github.com/fkdusrh.png)](https://github.com/fkdusrh) | [![김한슬](https://github.com/slcloe.png)](https://github.com/slcloe) | [![전은평](https://github.com/pyeong114.png)](https://github.com/pyeong114) |
+| :-------------------------------------------------------------------: | :---------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :---------------------------------------------------------------------: | :-------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
+|                 [👑윤진아](https://github.com/ahjinU)                 |                  [윤서안](https://github.com/annyoon)                   |                   [장수민](https://github.com/jangsumin)                    |                  [김라연](https://github.com/fkdusrh)                   |                  [김한슬](https://github.com/slcloe)                  |                   [전은평](https://github.com/pyeong114)                    |
+
+---
+
 ## 📝 프로젝트 산출물
 
 - [Notion](https://www.notion.so/588744f79b4b48308e66723e188582a4)
@@ -152,11 +160,3 @@
 ### Figma
 
 ![Untitled](https://github.com/mufin-life/mufin/assets/79207743/d91fda24-1c6f-48eb-9b0d-6c487f9d0f2b)
-
----
-
-## 👨‍👩‍👧‍👦 구성원
-
-| [![윤진아](https://github.com/ahjinU.png)](https://github.com/ahjinU) | [![윤서안](https://github.com/annyoon.png)](https://github.com/annyoon) | [![장수민](https://github.com/jangsumin.png)](https://github.com/jangsumin) | [![김라연](https://github.com/fkdusrh.png)](https://github.com/fkdusrh) | [![김한슬](https://github.com/slcloe.png)](https://github.com/slcloe) | [![전은평](https://github.com/pyeong114.png)](https://github.com/pyeong114) |
-| :-------------------------------------------------------------------: | :---------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :---------------------------------------------------------------------: | :-------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
-|                 [👑윤진아](https://github.com/ahjinU)                 |                  [윤서안](https://github.com/annyoon)                   |                   [장수민](https://github.com/jangsumin)                    |                  [김라연](https://github.com/fkdusrh)                   |                  [김한슬](https://github.com/slcloe)                  |                   [전은평](https://github.com/pyeong114)                    |
