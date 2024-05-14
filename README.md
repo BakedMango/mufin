@@ -76,7 +76,7 @@
 | :-----------------------------------------: | :-------------------------------------------: | :---------------------------------------------: |
 |                  대출 심사                  |                   대출 내역                   |                    주식 차트                    |
 
-| ![Stock Rank](./assets/screen/stock_rank.gif) | ![Stock Buy](./assets/screen/stock_rank.gif) | ![Stock Sell](./assets/screen/stock_sell.gif) |
+| ![Stock Rank](./assets/screen/stock_rank.gif) | ![Stock Buy](./assets/screen/stock_buy.gif) | ![Stock Sell](./assets/screen/stock_sell.gif) |
 | :-------------------------------------------: | :------------------------------------------: | :-------------------------------------------: |
 |                   주식 랭킹                   |                주식 매수 주문                |                주식 매도 주문                 |
 
