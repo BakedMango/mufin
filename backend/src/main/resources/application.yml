@@ -1,9 +1,4 @@
 spring:
-  config:
-    import:
-      - secret/application-secret.yml
-
-
   jpa:
     hibernate:
       ddl-auto: update
@@ -14,8 +9,6 @@ spring:
         show_sql: false
         jdbc:
           time_zone: Asia/Seoul
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
   servlet:
     multipart:
       max-file-size: 15MB
