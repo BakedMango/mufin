@@ -7,6 +7,8 @@ build/
 
 
 **/application-secret.yml
+**/application-test.yml
+
 
 ### STS ###
 .apt_generated
