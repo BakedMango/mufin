@@ -3,6 +3,7 @@ package com.a502.backend.application.entity;
 import com.a502.backend.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.context.annotation.Profile;
 
 import java.util.UUID;
 
@@ -47,5 +48,10 @@ public class Savings extends BaseEntity {
 
 	public void delete(){
 		this.setDeleted(true);
+	}
+
+	@Profile("test")
+	public void setSavingUuid() {
+		this.savingUuid = UUID.randomUUID();
 	}
 }
