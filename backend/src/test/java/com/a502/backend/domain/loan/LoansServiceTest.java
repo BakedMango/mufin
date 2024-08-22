@@ -31,6 +31,8 @@ class LoansServiceTest {
 
     @Autowired
     UserFactory userFactory;
+    @Autowired
+    private LoansRepository loansRepository;
 
     @Test
     void testFindById_Exists() {
@@ -118,4 +120,16 @@ class LoansServiceTest {
         assertThat(exception.getErrorCode()).isEqualTo(ErrorCode.API_ERROR_LOAN_NOT_EXIST);
     }
 
+    @Test
+    void testUpdateOverdueCount() {
+        // given
+        Loan loan = loanFactory.createAndSaveLoan(1000, 30, 10, "kim");
+        int overdueCount = loan.getOverdueCnt();
+
+        // when
+        loansService.updateOverdueCnt(loan);
+
+        // then
+        assertThat(loan.getOverdueCnt()).isEqualTo(overdueCount + 1);
+    }
 }
