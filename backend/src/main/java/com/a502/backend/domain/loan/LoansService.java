@@ -21,8 +21,8 @@ public class LoansService {
 		return loansRepository.findById(id).orElseThrow(() -> BusinessException.of(ErrorCode.API_ERROR_LOAN_NOT_EXIST));
 	}
 
-	public void saveLoan(Loan loan) {
-		loansRepository.save(loan);
+	public Loan saveLoan(Loan loan) {
+		return loansRepository.save(loan);
 	}
 
 	public List<Loan> getAllLoansForChild(User child) {
