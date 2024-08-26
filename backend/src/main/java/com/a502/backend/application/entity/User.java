@@ -3,6 +3,7 @@ package com.a502.backend.application.entity;
 import com.a502.backend.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.context.annotation.Profile;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -91,4 +92,8 @@ public class User extends BaseEntity {
     public void addParent(User parent) {
 		this.parent = parent;
     }
+	@Profile("test")
+	public void setUserUuid() {
+		this.userUuid = UUID.randomUUID();
+	}
 }
