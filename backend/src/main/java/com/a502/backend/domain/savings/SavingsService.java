@@ -15,10 +15,6 @@ import java.util.UUID;
 public class SavingsService {
 	private final SavingsRepository savingsRepository;
 
-	public Savings findById(int id) {
-		return savingsRepository.findById(id).orElseThrow(() -> BusinessException.of(ErrorCode.API_ERROR_SAVINGS_NOT_EXIST));
-	}
-
 	public Savings findByUuid(String savingsUuid) {
 		UUID uuid = UUID.fromString(savingsUuid);
 		Savings savings = savingsRepository.findSavingsListByUuid(uuid).orElseThrow(() -> BusinessException.of(ErrorCode.API_ERROR_SAVINGS_NOT_EXIST));

@@ -6,6 +6,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Profile;
 
 import java.util.UUID;
 
@@ -100,5 +101,10 @@ public class Account extends BaseEntity {
 		this.interestAmount = interestAmount;
 		this.setDeleted(true);
 		this.statusCode = code;
+	}
+
+	@Profile("test")
+	public void setAccountUuid() {
+		this.accountUuid = UUID.randomUUID();
 	}
 }
