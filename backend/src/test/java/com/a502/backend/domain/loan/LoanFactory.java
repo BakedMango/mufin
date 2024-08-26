@@ -96,4 +96,19 @@ public class LoanFactory {
                 .child(user)
                 .build();
     }
+
+    public Loan createLoan(int amount, int period, int count, String childName, Code code) {
+
+        User user = userFactory.createAndSaveUser(childName);
+        return Loan.builder()
+                .amount(amount)
+                .reason("Test Reason")
+                .paymentDate(period)
+                .penalty("None")
+                .paymentTotalCnt(count)
+                .startDate(LocalDate.now())
+                .child(user)
+                .code(code)
+                .build();
+    }
 }
