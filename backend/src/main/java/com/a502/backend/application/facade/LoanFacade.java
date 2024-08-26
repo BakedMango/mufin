@@ -261,12 +261,16 @@ public class LoanFacade {
 		// 부모 계좌에서 송금(+돈 여부 체크)
 		Account parentAccount = accountService.findByUser(parent);
 		int parentBalance = parentAccount.getBalance();
-		if (parentBalance < loan.getAmount())
+		if (parentBalance < loan.getAmount()) {
+			log.info("parent balance: " + parentBalance);
+			log.info("loan balance: " + loan.getAmount());
 			throw BusinessException.of(ErrorCode.API_ERROR_ACCOUNT_INSUFFICIENT_BALANCE);
+		}
 		parentAccount.updateAccount(parentBalance - loan.getAmount());
 		// 아이 계좌 업데이트
 		Account childAccount = accountService.findByUser(loan.getChild());
 		int childBalance = childAccount.getBalance();
+		log.info("child balance: " + childBalance);
 		childAccount.updateAccount(childBalance + loan.getAmount());
 		// 거래내역(부모, 아이) 테이블 업데이트
 		// 부모
