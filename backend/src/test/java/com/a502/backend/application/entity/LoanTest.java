@@ -56,19 +56,24 @@ public class LoanTest {
 
     @Test
     public void testRepayLoan() {
-        // LoanFactory를 사용해 Loan 객체 생성 및 저장
         Loan loan = loanFactory.createAndSaveLoanWithChild(1000, 30, 12, child, loanInProgressCode);
+        loan.updateOverdueCnt(2);
+        boolean isComplete = loan.repayLoan(1);
 
-        boolean isComplete = loan.repayLoan(5);
         assertFalse(isComplete);
-        assertEquals(5, loan.getPaymentNowCnt());
+        assertEquals(1, loan.getPaymentNowCnt());
+        assertEquals(1, loan.getOverdueCnt());
+
+        loan.repayLoan(1);
+        assertEquals(2, loan.getPaymentNowCnt());
         assertEquals(0, loan.getOverdueCnt());
 
-        isComplete = loan.repayLoan(7);
+        isComplete = loan.repayLoan(10);
         assertTrue(isComplete);
         assertEquals(12, loan.getPaymentNowCnt());
         assertEquals(0, loan.getOverdueCnt());
     }
+
 
     @Test
     public void testLoanStatusChange() {
@@ -95,5 +100,75 @@ public class LoanTest {
 
         loan.updateOverdueCnt(0);
         assertEquals(0, loan.getOverdueCnt());
+    }
+
+    @Test
+    public void testLombokGetters() {
+        // Loan 객체 생성 및 저장
+        Loan loan = loanFactory.createAndSaveLoanWithChild(1000, 30, 12, child, loanInProgressCode);
+
+        // Lombok의 getter 메서드 테스트
+        assertEquals(1000, loan.getAmount());
+        assertEquals("Test Reason", loan.getReason());
+        assertEquals(30, loan.getPaymentDate());
+        assertEquals("None", loan.getPenalty());
+        assertEquals(12, loan.getPaymentTotalCnt());
+        assertEquals(0, loan.getPaymentNowCnt());
+        assertEquals(0, loan.getOverdueCnt());
+        assertEquals(LocalDate.now(), loan.getStartDate());
+        assertEquals(child, loan.getChild());
+        assertNull(loan.getParent());  // 부모는 null로 설정됨
+        assertEquals(loanInProgressCode, loan.getCode());
+    }
+
+    @Test
+    public void testLombokBuilder() {
+        // Lombok의 @Builder를 사용해 Loan 객체 생성
+        Loan loan = Loan.builder()
+                .amount(1500)
+                .reason("Another Test Reason")
+                .paymentDate(45)
+                .penalty("Minor")
+                .paymentTotalCnt(10)
+                .startDate(LocalDate.now())
+                .child(child)
+                .parent(parent)
+                .code(loanInProgressCode)
+                .build();
+
+        // 빌더 패턴으로 생성된 객체 검증
+        assertNotNull(loan);
+        assertEquals(1500, loan.getAmount());
+        assertEquals("Another Test Reason", loan.getReason());
+        assertEquals(45, loan.getPaymentDate());
+        assertEquals("Minor", loan.getPenalty());
+        assertEquals(10, loan.getPaymentTotalCnt());
+        assertEquals(LocalDate.now(), loan.getStartDate());
+        assertEquals(child, loan.getChild());
+        assertEquals(parent, loan.getParent());
+        assertEquals(loanInProgressCode, loan.getCode());
+    }
+
+    @Test
+    public void testStartLoan() {
+        Loan loan = loanFactory.createAndSaveLoanWithChild(1000, 30, 12, child, loanInProgressCode);
+        LocalDate newStartDate = LocalDate.now().plusDays(1);
+        Code newCode = codeFactory.createAndSaveCode("L001", "심사중");
+
+        loan.startLoan(newStartDate, newCode);
+
+        assertEquals(newStartDate, loan.getStartDate());
+        assertEquals(newCode, loan.getCode());
+    }
+
+    @Test
+    public void testEqualsAndHashCode() {
+        Loan loan1 = loanFactory.createAndSaveLoanWithChild(1000, 30, 12, child, loanInProgressCode);
+        Loan loan2 = loanFactory.createAndSaveLoanWithChild(1000, 30, 12, child, loanInProgressCode);
+        Loan loan3 = loanFactory.createAndSaveLoanWithChild(2000, 40, 24, child, loanInProgressCode);
+
+        assertNotEquals(loan1.hashCode(), loan2.hashCode()); // 다른 객체는 다른 hashCode여야 합니다.
+        assertNotEquals(loan2.hashCode(), loan3.hashCode()); // 다른 객체는 다른 hashCode여야 합니다.
+        assertNotEquals(loan1.hashCode(), loan3.hashCode()); // 다른 객체는 다른 hashCode여야 합니다.
     }
 }
