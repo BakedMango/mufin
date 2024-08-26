@@ -97,6 +97,7 @@ public class User extends BaseEntity {
 	@Profile("test")
 	public void setUserUuid() {
 		this.userUuid = UUID.randomUUID();
+	}
 
 	@Override
 	public boolean equals(Object o) {
